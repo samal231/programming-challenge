@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Arrays;
 
 import de.exxcellent.challenge.data.Data;
+import de.exxcellent.challenge.data.FootballData;
 import de.exxcellent.challenge.data.WeatherData;
 
 public final class SmallestDifferenceFinder {
@@ -14,7 +15,11 @@ public final class SmallestDifferenceFinder {
   public static void main(String... args) {
     Data weatherData = new WeatherData("MxT", "MnT");
     processFile(weatherData, getFileURL("de/exxcellent/challenge/weather.csv"));
-    System.out.printf("Day with smallest temperature spread : %s%n", weatherData.getItemWithSmallestDifference());
+    System.out.printf("Day with the smallest temperature spread: %s%n", weatherData.getItemWithSmallestDifference());
+
+    Data footballData = new FootballData("Goals", "Goals Allowed");
+    processFile(footballData, getFileURL("de/exxcellent/challenge/football.csv"));
+    System.out.printf("Team with the smallest goal spread: %s%n", footballData.getItemWithSmallestDifference());
   }
 
   private static URL getFileURL(String fileName) {
