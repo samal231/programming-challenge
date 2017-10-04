@@ -6,10 +6,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Arrays;
 
+import de.exxcellent.challenge.data.Data;
+import de.exxcellent.challenge.data.WeatherData;
+
 public final class SmallestDifferenceFinder {
 
   public static void main(String... args) {
-    WeatherData weatherData = new WeatherData("MxT", "MnT");
+    Data weatherData = new WeatherData("MxT", "MnT");
     processFile(weatherData, getFileURL("de/exxcellent/challenge/weather.csv"));
     System.out.printf("Day with smallest temperature spread : %s%n", weatherData.getItemWithSmallestDifference());
   }
@@ -24,7 +27,7 @@ public final class SmallestDifferenceFinder {
     return fileURL;
   }
 
-  private static void processFile(WeatherData weatherData, URL url) {
+  private static void processFile(Data weatherData, URL url) {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
       String line;

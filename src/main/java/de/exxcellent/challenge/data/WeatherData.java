@@ -1,8 +1,8 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.data;
 
 import java.util.List;
 
-public class WeatherData {
+public class WeatherData implements Data<Double> {
 
   private boolean firstRow = true;
   private String day;
@@ -20,6 +20,7 @@ public class WeatherData {
     this.column2 = column2;
   }
 
+  @Override
   public void processRow(List<String> row) {
     if(firstRow) {
       column1Index = row.indexOf(column1);
@@ -30,7 +31,8 @@ public class WeatherData {
     }
   }
 
-  public void saveIfSmallest(String day, double value1, double value2) {
+  @Override
+  public void saveIfSmallest(String day, Double value1, Double value2) {
     double difference = value1 - value2;
     if(difference < smallestDifference) {
       smallestDifference = difference;
@@ -38,6 +40,7 @@ public class WeatherData {
     }
   }
 
+  @Override
   public String getItemWithSmallestDifference() {
     return day;
   }

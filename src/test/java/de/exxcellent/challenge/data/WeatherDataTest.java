@@ -1,4 +1,4 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.data;
 
 import java.util.Arrays;
 import java.util.List;
